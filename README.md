@@ -1,6 +1,9 @@
 # Volatility
 Volatility Framework (http://www.volatilityfoundation.org/) related stuff
 
+## create_plugin
+A small script to initialize Volatility plugin for malware detection.
+
 ## vol_vm.py
 A simple wrapper to analyze vmem files with Volatility Framework. Tested on macOS + VMware Fusion. This might be useful for malware analyst.
 
@@ -19,7 +22,7 @@ config addr: 0035F788
 
 ----------------------------------------------------------------------
 Lavender Settings:
-...
+(snip.)
 ```
 
 ## License
