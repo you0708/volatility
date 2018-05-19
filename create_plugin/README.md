@@ -19,7 +19,7 @@ PID      Image Name           Base Address
 ```
 
 ```
-$ vol TestConfig -f test.vmem --profile=Win7SP1x64
+$ vol TestConfig --output=json -f test.vmem --profile=Win7SP1x64
 Volatility Foundation Volatility Framework 2.6
 {'processes': [{'pid': 1111, 'image_name': 'test.exe', 'base_address': 4194304}]}
 ```

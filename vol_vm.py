@@ -19,6 +19,7 @@ VOLATILITY = BASE_DIR + '/vol.py'
 parser = argparse.ArgumentParser(description='A simple wrapper to analyze vmem files with Volatility Framework')
 parser.add_argument("COMMAND", help="Volatility command to execute")
 parser.add_argument("-n", "--name", action="store", dest="vm_name", default=DEFAULT_VIRTUAL_MACHINE, help="Specify virtual machine name which you want to scan (Default: {})".format(DEFAULT_VIRTUAL_MACHINE))
+parser.add_argument("-j", "--json", action="store_true", dest="json", default=False, help="Output as JSON")
 args = parser.parse_args()
 
 def is_active(vm_path):
@@ -62,7 +63,10 @@ def main():
         return
 
     print('[*] volatility output:')
-    subprocess.call([VOLATILITY, '--plugins=' + PLUGIN_DIR, args.COMMAND, '-f', vmem, '--profile=' + vm.profile])
+    if args.json == False:
+        subprocess.call([VOLATILITY, '--plugins=' + PLUGIN_DIR, args.COMMAND, '-f', vmem, '--profile=' + vm.profile])
+    else:
+        subprocess.call([VOLATILITY, '--plugins=' + PLUGIN_DIR, '--output=json', args.COMMAND, '-f', vmem, '--profile=' + vm.profile])
 
     return
 
